@@ -11,7 +11,6 @@ int             main(int argc, char const *argv[]) {
     int i = 0;
     
     printf("Entre un nombre :\n");
-    
     scanf("%s", nombre);
     
     int nb = atoi(nombre);
@@ -121,4 +120,3 @@ int             main(int argc, char const *argv[]) {
     
     return 0;
 }
-
