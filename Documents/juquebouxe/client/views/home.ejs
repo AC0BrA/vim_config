@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="flat/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="flat/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Juquebouxe - Home</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav navbar-left" id="menu">
+          <li class="active"><a  href="/">HOME</a></li>
+		 <li><a  href="#">Credit</a></li>
+	  </ul>
+      </div>
+    </nav>
+  <div class="container">
+
+      	<div class="form_bg">
+			<div class=row>
+				<div class="col-xs-4">
+					<div class="text-center">
+						<img src="https://i.ytimg.com/vi/cATM54tnl70/hqdefault.jpg" alt="" height="80px" width="110px" margin="5px"/>
+					</div>
+				</div>
+				<div class="col-xs-4" style="vertical-align:center">
+					<h2 id="titre" class="text-center">example truc muche</h2>
+				</div>
+				<div class="col-xs-4">
+					<div class="text-center">
+						<div class="btn-group">
+							<button class="btn btn-success" name="+" style="padding-left:15px;padding-right:15px">+</button>
+							<button class="btn btn-danger" name="-" style="padding-left:17px;padding-right:17px">-</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="text-center">
+						<img src="https://i.ytimg.com/vi/cATM54tnl70/hqdefault.jpg" alt="" height="80px" width="110px" margin="5px"/>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<h2 id="titre" class="text-center">example</h2>
+				</div>
+				<div class="col-xs-4">
+					<div class="text-center">
+						<div class="btn-group">
+							<button class="btn btn-success" name="+" style="padding-left:15px;padding-right:15px">+</button>
+							<button class="btn btn-danger" name="-" style="padding-left:17px;padding-right:17px">-</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	  	</div>
+
+  </div>
+    <script src="flat/dist/js/vendor/jquery.min.js"></script>
+    <script src="flat/dist/js/vendor/video.js"></script>
+    <script src="flat/dist/js/flat-ui.min.js"></script>
+    <script src="flat/docs/assets/js/application.js"></script>
+    <script>
+
+		function actualize(json)
+		{
+
+		}
+		var ws = new WebSocket("ws://192.168.91.129:4041");
+
+		ws.onerror = () => {
+			var ws = new WebSocket("ws://192.168.91.129:4041");
+		}
+		ws.onclose = () => {
+			var ws = new WebSocket("ws://192.168.91.129:4041")
+		}
+		ws.onmessage = (d) => {
+			try{
+				const json = JSON.parse(d.data);
+			}
+			catch(e){
+				console.log(e);
+			}
+			actualize(json);
+		}
+    </script>
+  </body>
+</html>
